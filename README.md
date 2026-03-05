@@ -1,7 +1,5 @@
 # CONSTELLATION
 
-**CONtext-Specific spaTial cELLulAr inTeractions In OrgaNs**
-
 CONSTELLATION is a spatial-conditioned permutation testing framework for ligand-receptor (LR) interaction inference in spatial transcriptomics data. It tests whether LR co-expression is spatially enriched beyond what is expected under random cell labeling, using an analytical permutation null that provides exact p-values without Monte Carlo sampling.
 
 ## Key features
