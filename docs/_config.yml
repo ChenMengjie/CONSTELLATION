@@ -1,0 +1,23 @@
+title: CONSTELLATION
+description: "CONtext-Specific spaTial cELLulAr inTeractions In OrgaNs"
+remote_theme: just-the-docs/just-the-docs@v0.10.0
+
+url: ""
+baseurl: "/constellation"
+
+permalink: pretty
+
+aux_links:
+  "GitHub":
+    - "https://github.com/mchen12/constellation"
+
+nav_sort: order
+
+color_scheme: light
+
+search_enabled: true
+
+back_to_top: true
+back_to_top_text: "Back to top"
+
+footer_content: "CONSTELLATION &mdash; MIT License"

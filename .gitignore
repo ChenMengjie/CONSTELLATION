@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Data (large files)
+data/*.h5ad
+data/*.h5
+data/*.parquet
+
+# Notebook outputs
+notebooks/results_*.csv
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+.Rhistory
+
+# Internal backups
+src/constellation/v0/
+
+# IDE
+.vscode/
+.idea/
