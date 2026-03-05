@@ -175,31 +175,15 @@ CONSTELLATION applies `log1p()` internally. If your data is already log-normaliz
 
 ## Tutorials
 
-Step-by-step notebooks demonstrating CONSTELLATION on three Xenium spatial transcriptomics datasets, from raw data preprocessing through biological interpretation.
+Step-by-step notebooks demonstrating CONSTELLATION on three Xenium spatial transcriptomics datasets.
 
-### Lymph Node (Xenium Prime 5K)
+| Dataset | Notebook | Description |
+|---------|----------|-------------|
+| **Lymph Node** (Xenium Prime 5K, 708K cells, 22 types) | [`tutorial_lymphnode.ipynb`](tutorials/lymph_node/tutorial_lymphnode.ipynb) | Spatial range characterization, tau sweep, multi-method benchmarking (CD40LG–CD40, CXCL13–CXCR5) |
+| **Colon Cancer** (Xenium V1, 308K cells, 3 compartments) | [`tutorial_crc_constellation.ipynb`](tutorials/crc/tutorial_crc_constellation.ipynb) | Per-compartment analysis, tumor microenvironment LR characterization |
+| **Ovarian Cancer** (Xenium Prime 5K, 265K cells, 17 types) | [`tutorial_oc.ipynb`](tutorials/oc/tutorial_oc.ipynb) | Per-compartment analysis, 5-method benchmarking, CXCL12–CXCR4 specificity |
 
-Reactive lymph node (708K cells, 4,624 genes, 22 cell types). Demonstrates spatial range characterization and specificity assessment on germinal center biology (CD40LG–CD40, CXCL13–CXCR5).
-
-[`tutorial_lymphnode.ipynb`](tutorials/lymph_node/tutorial_lymphnode.ipynb) — CONSTELLATION analysis, tau sweep for spatial range classification, multi-method benchmarking (5 methods)
-
-Data preprocessing and cell type annotation: [`tutorial_annotate_lymphnode.ipynb`](tutorials/lymph_node/tutorial_annotate_lymphnode.ipynb)
-
-### Colon Cancer (Xenium V1)
-
-Colorectal cancer (308K cells, 313 genes, 3 compartments: Tumor/50µm/Tissue). Demonstrates compartment-level analysis and tumor microenvironment characterization.
-
-[`tutorial_crc_constellation.ipynb`](tutorials/crc/tutorial_crc_constellation.ipynb) — Per-compartment CONSTELLATION analysis, LR interaction characterization
-
-Data preprocessing and compartment annotation: [`tutorial_annotate_compartments.ipynb`](tutorials/crc/tutorial_annotate_compartments.ipynb)
-
-### Ovarian Cancer (Xenium Prime 5K)
-
-High-grade serous ovarian cancer (265K cells, 5,101 genes, 17 cell types, 3 compartments: Tumor/Interface/Stroma). Demonstrates immune exclusion biology (CXCL12–CXCR4) and method specificity comparison.
-
-[`tutorial_oc.ipynb`](tutorials/oc/tutorial_oc.ipynb) — Per-compartment CONSTELLATION analysis, 5-method benchmarking, CXCL12–CXCR4 specificity validation
-
-Data preprocessing and cell type annotation: [`tutorial_annotate_oc.ipynb`](tutorials/oc/tutorial_annotate_oc.ipynb)
+Data preprocessing and cell type annotation notebooks: [lymph node](tutorials/lymph_node/tutorial_annotate_lymphnode.ipynb) | [colon cancer](tutorials/crc/tutorial_annotate_compartments.ipynb) | [ovarian cancer](tutorials/oc/tutorial_annotate_oc.ipynb)
 
 ## Citation
 
