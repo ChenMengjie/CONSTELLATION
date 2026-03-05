@@ -13,7 +13,7 @@ import seaborn as sns
 
 def plot_celltype_pair_heatmap(results_df, value_col='z_score', agg_func='mean',
                                 sig_only=True, fdr_threshold=0.05,
-                                cmap='RdBu_r', center=0, figsize=(12, 10),
+                                cmap='coolwarm', center=0, figsize=(12, 10),
                                 title=None, save_path=None):
     """
     Plot heatmap of cell type pairs.
@@ -113,7 +113,7 @@ def plot_lr_category_heatmap(results_df, category_col='ligand_category_major',
         if len(cat_df) > 0:
             pivot = cat_df.groupby(['sender', 'receiver']).size().unstack(fill_value=0)
 
-            sns.heatmap(pivot, ax=ax, cmap='YlOrRd', annot=False,
+            sns.heatmap(pivot, ax=ax, cmap='magma', annot=False,
                         cbar_kws={'label': '# Significant'})
             ax.set_title(f'{cat} (n={len(cat_df)})', fontsize=11, fontweight='bold')
         else:
@@ -152,10 +152,10 @@ def plot_cell_lineage_tree(lineage_dict, counts_dict, figsize=(16, 10), save_pat
 
     # Colors by major lineage
     lineage_colors = {
-        'T cell': '#E41A1C',
-        'B cell': '#377EB8',
-        'Myeloid': '#4DAF4A',
-        'Other': '#984EA3',
+        'T cell': '#E07A5F',
+        'B cell': '#3D85C6',
+        'Myeloid': '#81B29A',
+        'Other': '#8E7CC3',
     }
 
     y_pos = 0.9
@@ -246,7 +246,7 @@ def plot_celltype_barplot(counts_dict, order=None, colors=None,
     y_pos = np.arange(len(order))
 
     if colors is None:
-        colors = ['#377EB8'] * len(order)
+        colors = ['#3D85C6'] * len(order)
 
     bars = ax.barh(y_pos, counts, color=colors, edgecolor='black', linewidth=0.5)
     ax.set_yticks(y_pos)
@@ -303,7 +303,7 @@ def plot_lr_interaction_summary(results_df, group_col='cell_type',
 
     fig, ax = plt.subplots(figsize=figsize)
 
-    bars = ax.barh(range(len(counts)), counts.values, color='steelblue', edgecolor='black')
+    bars = ax.barh(range(len(counts)), counts.values, color='#3D85C6', edgecolor='black')
     ax.set_yticks(range(len(counts)))
     ax.set_yticklabels(counts.index)
     ax.invert_yaxis()
@@ -325,7 +325,7 @@ def plot_lr_interaction_summary(results_df, group_col='cell_type',
 
 
 def create_dotplot_markers(adata, markers_dict, groupby, categories_order=None,
-                           standard_scale='var', cmap='Reds',
+                           standard_scale='var', cmap='rocket',
                            swap_axes=False, save_path=None, title=None):
     """
     Create scanpy dotplot for canonical markers.
@@ -429,7 +429,7 @@ def _prepare_interaction_data(results_df, sig_only=True, fdr_threshold=0.05,
 
 def plot_combined_heatmap(results_df, value_col='z_score', agg_func='count',
                            sig_only=True, fdr_threshold=0.05,
-                           cmap='YlOrBr', center=None, annot=True,
+                           cmap='magma', center=None, annot=True,
                            cell_type_order=None, cluster=False,
                            diag_linewidth=2.0, figsize=None,
                            title=None, save_path=None):
@@ -616,7 +616,7 @@ def plot_combined_heatmap(results_df, value_col='z_score', agg_func='count',
 def plot_interaction_dotplot(results_df, sig_only=True, fdr_threshold=0.05,
                               color_col='z_score', color_agg='mean',
                               min_count=1, max_dot_size=400, min_dot_size=20,
-                              cmap='YlOrBr', edgecolor='black', linewidth=0.8,
+                              cmap='magma', edgecolor='black', linewidth=0.8,
                               cell_type_order=None, cluster=False,
                               show_within=True, annotate_threshold=None,
                               figsize=None, title=None, save_path=None):
@@ -828,8 +828,8 @@ def plot_interaction_dotplot(results_df, sig_only=True, fdr_threshold=0.05,
 def plot_interaction_network(results_df, sig_only=True, fdr_threshold=0.05,
                               edge_metric='count', min_count=1,
                               node_size_metric='total_interactions',
-                              node_colors=None, default_node_color='#E8B87D',
-                              edge_cmap='YlOrBr', edge_width_range=(0.5, 5.0),
+                              node_colors=None, default_node_color='#81B29A',
+                              edge_cmap='magma', edge_width_range=(0.5, 5.0),
                               edge_alpha=0.6, show_self_loops=True,
                               self_loop_scale=0.12,
                               cell_type_order=None,
@@ -1104,7 +1104,7 @@ def plot_lr_dotplot(results_df, lr_pairs=None, celltype_pairs=None,
                     size_col='p_adj', color_col='z_score',
                     sig_only=True, fdr_threshold=0.05,
                     cluster_rows=False, cluster_cols=False,
-                    cmap='RdBu_r', center=0,
+                    cmap='coolwarm', center=0,
                     max_dot_size=300, min_dot_size=10,
                     figsize=None, title=None, save_path=None):
     """
@@ -1329,9 +1329,9 @@ def plot_spatial_interactions(adata, cell_type_col, results_df=None,
                               sender=None, receiver=None,
                               indices=None, distances=None, tau=5.0,
                               mode='cell_type',
-                              sender_color='#E8B87D', receiver_color='#7BA3A8',
-                              edge_color='#999999', edge_alpha=0.3,
-                              bg_color='#E8E8E8', point_size=0.5,
+                              sender_color='#E07A5F', receiver_color='#3D85C6',
+                              edge_color='#888888', edge_alpha=0.3,
+                              bg_color='#D6D6D6', point_size=0.5,
                               xlim=None, ylim=None,
                               figsize=(12, 10), title=None, save_path=None):
     """
@@ -1514,7 +1514,7 @@ def plot_spatial_interactions(adata, cell_type_col, results_df=None,
 
         # Sender cells colored by score
         sc = ax.scatter(coords[sender_idx, 0], coords[sender_idx, 1],
-                        s=point_size, c=scores, cmap='YlOrRd',
+                        s=point_size, c=scores, cmap='rocket',
                         vmin=0, rasterized=True, zorder=3)
 
         cbar = fig.colorbar(sc, ax=ax, shrink=0.6,
@@ -1554,7 +1554,7 @@ def plot_spatial_interactions(adata, cell_type_col, results_df=None,
                    rasterized=True, zorder=1)
         sc = ax.scatter(coords[nonzero, 0], coords[nonzero, 1],
                         s=point_size, c=cell_scores[nonzero],
-                        cmap='YlOrRd', rasterized=True, zorder=2)
+                        cmap='rocket', rasterized=True, zorder=2)
 
         cbar = fig.colorbar(sc, ax=ax, shrink=0.6,
                             label='# Significant interactions', pad=0.02)
@@ -1596,7 +1596,7 @@ def plot_compartment_heatmap(
     compartment_col='compartment',
     lr_col='lr_pair',
     compartment_order=None,
-    cmap='RdYlGn',
+    cmap='PiYG',
     figsize=None,
     title='CONSTELLATION Compartment Detection',
     show_values=True,
@@ -1620,7 +1620,7 @@ def plot_compartment_heatmap(
         Column containing LR pair names.
     compartment_order : list, optional
         Order of compartments (columns). If None, uses sorted order.
-    cmap : str, default='RdYlGn'
+    cmap : str, default='PiYG'
         Colormap for heatmap.
     figsize : tuple, optional
         Figure size. If None, auto-computed based on data.
@@ -1708,7 +1708,7 @@ def plot_distance_profile(
     receptor=None,
     boundary_pos=0,
     interface_pos=None,
-    color='#5a7aaa',
+    color='#457B9D',
     figsize=(10, 5),
     title=None,
     xlabel='Distance from Boundary (μm)',
@@ -1735,7 +1735,7 @@ def plot_distance_profile(
         Position of the main boundary (e.g., tumor edge).
     interface_pos : float, optional
         Position of secondary boundary (e.g., interface edge).
-    color : str, default='#5a7aaa'
+    color : str, default='#457B9D'
         Line color.
     figsize : tuple
         Figure size.
@@ -1840,8 +1840,8 @@ def plot_compartment_spatial(
 
     # Default colors
     if compartment_colors is None:
-        default_colors = ['#d4a0a0', '#d4c090', '#a0b8d4', '#a0d4a0',
-                          '#d4a0d4', '#a0d4d4', '#d4d4a0', '#b0b0b0']
+        default_colors = ['#E07A5F', '#F2CC8F', '#3D85C6', '#81B29A',
+                          '#8E7CC3', '#F4A261', '#457B9D', '#B0B0B0']
         compartment_colors = {c: default_colors[i % len(default_colors)]
                               for i, c in enumerate(unique_comps)}
 
@@ -1876,7 +1876,7 @@ def plot_compartment_spatial(
 def plot_boundary_profile(profile_data, ligand=None, receptor=None,
                           boundary_pos=0, interface_width=50,
                           xlim=None, zone_labels=True,
-                          figsize=(8, 8), color='#5a7aaa', save_path=None):
+                          figsize=(8, 8), color='#457B9D', save_path=None):
     """
     Plot a 3-row boundary profile from compute_distance_profile() output.
 
@@ -1903,7 +1903,7 @@ def plot_boundary_profile(profile_data, ligand=None, receptor=None,
         Show Tumor / Interface / Tissue labels at the top of the plot.
     figsize : tuple, default=(8, 8)
         Figure size.
-    color : str, default='#5a7aaa'
+    color : str, default='#457B9D'
         Line/bar color.
     save_path : str, optional
         Path to save figure.

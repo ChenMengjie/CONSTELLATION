@@ -578,11 +578,11 @@ def build_hierarchy_for_plotting(refined_groups: Dict[str, List[str]],
         Nested dict for plot_cell_lineage_tree()
     """
     default_colors = {
-        "CD4_T": "#E41A1C",
-        "CD8_T": "#FF7F00",
-        "B_cell": "#377EB8",
-        "Myeloid": "#4DAF4A",
-        "Other": "#984EA3",
+        "CD4_T": "#E07A5F",
+        "CD8_T": "#F4A261",
+        "B_cell": "#3D85C6",
+        "Myeloid": "#81B29A",
+        "Other": "#8E7CC3",
     }
 
     if colors is None:
