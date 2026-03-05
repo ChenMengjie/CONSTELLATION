@@ -181,28 +181,25 @@ Step-by-step notebooks demonstrating CONSTELLATION on three Xenium spatial trans
 
 Reactive lymph node (708K cells, 4,624 genes, 22 cell types). Demonstrates spatial range characterization and specificity assessment on germinal center biology (CD40LG–CD40, CXCL13–CXCR5).
 
-| Notebook | Description |
-|----------|-------------|
-| [`tutorial_annotate_lymphnode.ipynb`](tutorials/lymph_node/tutorial_annotate_lymphnode.ipynb) | Data loading, normalization, QC, hierarchical marker-based cell type annotation |
-| [`tutorial_lymphnode.ipynb`](tutorials/lymph_node/tutorial_lymphnode.ipynb) | CONSTELLATION analysis, tau sweep for spatial range classification, multi-method benchmarking (5 methods) |
+[`tutorial_lymphnode.ipynb`](tutorials/lymph_node/tutorial_lymphnode.ipynb) — CONSTELLATION analysis, tau sweep for spatial range classification, multi-method benchmarking (5 methods)
+
+Data preprocessing and cell type annotation: [`tutorial_annotate_lymphnode.ipynb`](tutorials/lymph_node/tutorial_annotate_lymphnode.ipynb)
 
 ### Colon Cancer (Xenium V1)
 
 Colorectal cancer (308K cells, 313 genes, 3 compartments: Tumor/50µm/Tissue). Demonstrates compartment-level analysis and tumor microenvironment characterization.
 
-| Notebook | Description |
-|----------|-------------|
-| [`tutorial_annotate_compartments.ipynb`](tutorials/crc/tutorial_annotate_compartments.ipynb) | Data loading, tumor annotation (marker-based), spatial compartment definition |
-| [`tutorial_crc_constellation.ipynb`](tutorials/crc/tutorial_crc_constellation.ipynb) | Per-compartment CONSTELLATION analysis, LR interaction characterization |
+[`tutorial_crc_constellation.ipynb`](tutorials/crc/tutorial_crc_constellation.ipynb) — Per-compartment CONSTELLATION analysis, LR interaction characterization
+
+Data preprocessing and compartment annotation: [`tutorial_annotate_compartments.ipynb`](tutorials/crc/tutorial_annotate_compartments.ipynb)
 
 ### Ovarian Cancer (Xenium Prime 5K)
 
 High-grade serous ovarian cancer (265K cells, 5,101 genes, 17 cell types, 3 compartments: Tumor/Interface/Stroma). Demonstrates immune exclusion biology (CXCL12–CXCR4) and method specificity comparison.
 
-| Notebook | Description |
-|----------|-------------|
-| [`tutorial_annotate_oc.ipynb`](tutorials/oc/tutorial_annotate_oc.ipynb) | Data loading, normalization, QC, cell type annotation with negative gating, compartment definition |
-| [`tutorial_oc.ipynb`](tutorials/oc/tutorial_oc.ipynb) | Per-compartment CONSTELLATION analysis, 5-method benchmarking, CXCL12–CXCR4 specificity validation |
+[`tutorial_oc.ipynb`](tutorials/oc/tutorial_oc.ipynb) — Per-compartment CONSTELLATION analysis, 5-method benchmarking, CXCL12–CXCR4 specificity validation
+
+Data preprocessing and cell type annotation: [`tutorial_annotate_oc.ipynb`](tutorials/oc/tutorial_annotate_oc.ipynb)
 
 ## Citation
 
