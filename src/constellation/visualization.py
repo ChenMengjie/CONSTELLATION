@@ -113,7 +113,7 @@ def plot_lr_category_heatmap(results_df, category_col='ligand_category_major',
         if len(cat_df) > 0:
             pivot = cat_df.groupby(['sender', 'receiver']).size().unstack(fill_value=0)
 
-            sns.heatmap(pivot, ax=ax, cmap='magma', annot=False,
+            sns.heatmap(pivot, ax=ax, cmap='crest', annot=False,
                         cbar_kws={'label': '# Significant'})
             ax.set_title(f'{cat} (n={len(cat_df)})', fontsize=11, fontweight='bold')
         else:
@@ -429,7 +429,7 @@ def _prepare_interaction_data(results_df, sig_only=True, fdr_threshold=0.05,
 
 def plot_combined_heatmap(results_df, value_col='z_score', agg_func='count',
                            sig_only=True, fdr_threshold=0.05,
-                           cmap='magma', center=None, annot=True,
+                           cmap='crest', center=None, annot=True,
                            cell_type_order=None, cluster=False,
                            diag_linewidth=2.0, figsize=None,
                            title=None, save_path=None):
@@ -575,7 +575,7 @@ def plot_combined_heatmap(results_df, value_col='z_score', agg_func='count',
                     continue
                 # Determine text color (white on dark, black on light)
                 norm_val = (val - vmin_plot) / (vmax_plot - vmin_plot) if vmax_plot != vmin_plot else 0.5
-                text_color = 'white' if norm_val > 0.7 else 'black'
+                text_color = 'white' if norm_val > 0.5 else 'black'
                 text = f'{int(val)}' if agg_func == 'count' else f'{val:.1f}'
                 fontweight = 'bold' if i == j else 'normal'
                 fontsize = 8 if n > 20 else (9 if n > 10 else 10)
@@ -616,7 +616,7 @@ def plot_combined_heatmap(results_df, value_col='z_score', agg_func='count',
 def plot_interaction_dotplot(results_df, sig_only=True, fdr_threshold=0.05,
                               color_col='z_score', color_agg='mean',
                               min_count=1, max_dot_size=400, min_dot_size=20,
-                              cmap='magma', edgecolor='black', linewidth=0.8,
+                              cmap='crest', edgecolor='black', linewidth=0.8,
                               cell_type_order=None, cluster=False,
                               show_within=True, annotate_threshold=None,
                               figsize=None, title=None, save_path=None):
@@ -829,7 +829,7 @@ def plot_interaction_network(results_df, sig_only=True, fdr_threshold=0.05,
                               edge_metric='count', min_count=1,
                               node_size_metric='total_interactions',
                               node_colors=None, default_node_color='#81B29A',
-                              edge_cmap='magma', edge_width_range=(0.5, 5.0),
+                              edge_cmap='crest', edge_width_range=(0.5, 5.0),
                               edge_alpha=0.6, show_self_loops=True,
                               self_loop_scale=0.12,
                               cell_type_order=None,
