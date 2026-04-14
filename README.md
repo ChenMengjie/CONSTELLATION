@@ -11,6 +11,14 @@ CONSTELLATION is a spatial-conditioned permutation testing framework for ligand-
 - **Built-in LR databases** — CellPhoneDB, CellTalkDB, ConnectomeDB, LIANA consensus (~4,700 pairs)
 - **Cell Ontology integration** — hierarchical cell type grouping via EBI OLS API
 
+## Tutorials
+
+| Dataset | Notebook | Description |
+|---------|----------|-------------|
+| **Lymph Node** (Xenium Prime 5K, 708K cells, 22 types) | [`tutorial_lymphnode.ipynb`](tutorials/lymph_node/tutorial_lymphnode.ipynb) | Spatial range characterization, tau sweep, multi-method benchmarking (CD40LG–CD40, CXCL13–CXCR5) |
+| **Colon Cancer** (Xenium V1, 308K cells, 3 compartments) | [`tutorial_crc_constellation.ipynb`](tutorials/crc/tutorial_crc_constellation.ipynb) | Per-compartment analysis, tumor microenvironment LR characterization |
+| **Ovarian Cancer** (Xenium Prime 5K, 265K cells, 17 types) | [`tutorial_oc.ipynb`](tutorials/oc/tutorial_oc.ipynb) | Per-compartment analysis, 5-method benchmarking, CXCL12–CXCR4 specificity |
+
 ## Installation
 
 ```bash
@@ -172,18 +180,6 @@ See [API.md](API.md) for the complete function reference.
 | LR pairs | List of `(ligand, receptor)` tuples | From `load_lr_resource()` |
 
 CONSTELLATION applies `log1p()` internally. If your data is already log-normalized (e.g., from `sc.pp.log1p()`), you must reverse it with `np.expm1()` before passing to CONSTELLATION.
-
-## Tutorials
-
-Step-by-step notebooks demonstrating CONSTELLATION on three Xenium spatial transcriptomics datasets.
-
-| Dataset | Notebook | Description |
-|---------|----------|-------------|
-| **Lymph Node** (Xenium Prime 5K, 708K cells, 22 types) | [`tutorial_lymphnode.ipynb`](tutorials/lymph_node/tutorial_lymphnode.ipynb) | Spatial range characterization, tau sweep, multi-method benchmarking (CD40LG–CD40, CXCL13–CXCR5) |
-| **Colon Cancer** (Xenium V1, 308K cells, 3 compartments) | [`tutorial_crc_constellation.ipynb`](tutorials/crc/tutorial_crc_constellation.ipynb) | Per-compartment analysis, tumor microenvironment LR characterization |
-| **Ovarian Cancer** (Xenium Prime 5K, 265K cells, 17 types) | [`tutorial_oc.ipynb`](tutorials/oc/tutorial_oc.ipynb) | Per-compartment analysis, 5-method benchmarking, CXCL12–CXCR4 specificity |
-
-Data preprocessing and cell type annotation notebooks: [lymph node](tutorials/lymph_node/tutorial_annotate_lymphnode.ipynb) | [colon cancer](tutorials/crc/tutorial_annotate_compartments.ipynb) | [ovarian cancer](tutorials/oc/tutorial_annotate_oc.ipynb)
 
 ## Citation
 
